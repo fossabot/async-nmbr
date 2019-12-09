@@ -1,9 +1,10 @@
 ## async-nmbr
 
-### Very useful JavaScript Number operator overloading for asynchronous math operations
+### Very useful JavaScript Number operator overloading for asynchronous http math operations
 
 #### Getting Started
 
+1. `npm install --save async-nmbr`
 1. `npm install --save-dev @babel/core @babel/cli babel-plugin-overload babel-template`
 1. Create a file called `.babelrc` in your projects root directory
 1. Place the following content inside: `{ "plugins": ["overload"] }`
@@ -13,7 +14,7 @@
 
 Once the initial setup is completed you'll need to actually overload the operators for the `Number` type.
 
-You can do this by simply requiring this package and passing your `Number` object, like this:
+You can do this by simply requiring this package and passing the `Number` object in every file that you want to use it in, like this:
 
 ```javascript
 require('async-nmbr')(Number);

@@ -19,7 +19,7 @@ module.exports = Nmbr => {
 
 	Nmbr.prototype[Symbol.for('-')] = function(b) {
 		const a = this.valueOf();
-		return createCallPromise('substract', a, b);
+		return createCallPromise('subtract', a, b);
 	};
 
 	Nmbr.prototype[Symbol.for('*')] = function(b) {
