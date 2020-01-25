@@ -10,16 +10,11 @@ const OPERATORS = {
 	'**': 'exponentiation'
 };
 
-const createCallPromise = (operator, a, b) => {
-	return new Promise((resolve, reject) => {
-		fetch(`${API_URL}/${operator}/${a}/${b}`)
-			.then(res => res.json())
-			.then(({ result, error }) => {
-				if (error) return reject(new Error(error));
-				resolve(result);
-			})
-			.catch(err => reject(err));
-	});
+const createCallPromise = async (operator, a, b) => {
+	const res = await fetch(`${API_URL}/${operator}/${a}/${b}`);
+	const { result, error } = await res.json();
+	if (error) throw new Error(error);
+	return result;
 };
 
 module.exports = Nmbr => {
