@@ -10,6 +10,8 @@
 1. Place the following content inside: `{ "plugins": ["overload"] }`
 1. Find out [how you can build/compile your project](https://babeljs.io/docs/en/babel-cli#usage), e.g.: `npx babel src -d lib`
 
+[Fork example on CodeSandbox](https://codesandbox.io/s/async-nmbr-example-v9s2f?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark)
+
 #### Usage
 
 Once the initial setup is completed you'll need to actually overload the operators for the `Number` type.
