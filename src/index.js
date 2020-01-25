@@ -1,34 +1,32 @@
 const fetch = require('node-fetch');
 
+const API_URL = 'https://nmbr.dev';
+const OPERATORS = {
+	'+': 'add',
+	'-': 'subtract',
+	'*': 'multiply',
+	'/': 'divide',
+	'%': 'remainder',
+	'**': 'exponentiation'
+};
+
 const createCallPromise = (operator, a, b) => {
 	return new Promise((resolve, reject) => {
-		fetch(`https://nmbr.dev/${operator}/${a}/${b}`)
+		fetch(`${API_URL}/${operator}/${a}/${b}`)
 			.then(res => res.json())
 			.then(({ result, error }) => {
 				if (error) return reject(new Error(error));
 				resolve(result);
-			});
+			})
+			.catch(err => reject(err));
 	});
 };
 
 module.exports = Nmbr => {
-	Nmbr.prototype[Symbol.for('+')] = function(b) {
-		const a = this.valueOf();
-		return createCallPromise('add', a, b);
-	};
-
-	Nmbr.prototype[Symbol.for('-')] = function(b) {
-		const a = this.valueOf();
-		return createCallPromise('subtract', a, b);
-	};
-
-	Nmbr.prototype[Symbol.for('*')] = function(b) {
-		const a = this.valueOf();
-		return createCallPromise('multiply', a, b);
-	};
-
-	Nmbr.prototype[Symbol.for('/')] = function(b) {
-		const a = this.valueOf();
-		return createCallPromise('divide', a, b);
-	};
+	for (const [key, value] of Object.entries(OPERATORS)) {
+		Nmbr.prototype[Symbol.for(key)] = function(b) {
+			const a = this.valueOf();
+			return createCallPromise(value, a, b);
+		};
+	}
 };
