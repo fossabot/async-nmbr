@@ -1,4 +1,6 @@
 ## async-nmbr
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkldzj%2Fasync-nmbr.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkldzj%2Fasync-nmbr?ref=badge_shield)
+
 
 ### Very useful JavaScript Number operator overloading for asynchronous http math operations
 
@@ -34,3 +36,7 @@ await (Math.PI / 3); // 1.0471975511965976
 ```
 
 Please note: when using this package you'll always have to await your math calculations (isn't that awesome?)
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fkldzj%2Fasync-nmbr.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fkldzj%2Fasync-nmbr?ref=badge_large)
